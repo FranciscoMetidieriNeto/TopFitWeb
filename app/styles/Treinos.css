@@ -1,0 +1,155 @@
+/* app/styles/Treinos.css */
+
+.treinos-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--background);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-height: 80vh;
+}
+
+.treinos-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.treinos-header h1 {
+    font-size: 2.5rem;
+    color: #04198e; /* Cor principal (azul escuro do menu) */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.treinos-header p {
+    color: #616161;
+    font-size: 1.1rem;
+}
+
+/* --- Navegação por Dia (Paginação) --- */
+.day-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.day-button {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+    min-width: 120px;
+}
+
+.day-button:hover {
+    background-color: #c0c0c0;
+}
+
+.day-button.active {
+    background-color: #007aff; /* Azul de destaque */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 122, 255, 0.4);
+}
+
+.day-button.active:hover {
+    background-color: #0060c7;
+}
+
+/* --- Tabela de Treino --- */
+.workout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.workout-table thead th {
+    background-color: #04198e;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.workout-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.workout-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.workout-table tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+.workout-table td {
+    padding: 15px;
+    color: #333;
+    font-size: 0.95rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.workout-table td:first-child {
+    font-weight: 500;
+    color: #212121;
+}
+
+/* Responsividade da Tabela (Mobile) */
+@media (max-width: 768px) {
+    .treinos-container {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .day-button {
+        flex-grow: 1;
+        min-width: auto;
+    }
+
+    .workout-table thead {
+        display: none;
+    }
+
+    .workout-table, .workout-table tbody, .workout-table tr, .workout-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .workout-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .workout-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .workout-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #04198e;
+        text-align: left;
+    }
+}

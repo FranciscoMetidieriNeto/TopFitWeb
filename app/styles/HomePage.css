@@ -1,0 +1,448 @@
+/* app/HomePage.css */
+
+/* Código CSS original adaptado para React (sem alterações funcionais)*/
+
+/* PAINEL PRINCIPAL (HERO SECTION) */
+/* PAINEL PRINCIPAL (HERO SECTION) */
+.painel {
+    /* CORRIGIDO: Use /assets/img/... */
+    background: url("/assets/img/fundo.jpg") no-repeat center center/cover;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay */
+}
+
+.overlay {
+    text-align: center;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 0 0 10px 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 500;
+}
+
+.credit {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.btn {
+    text-decoration: none;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 12px 25px;
+    transition: background 0.3s, color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-radius: 50px;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #212121;
+}
+
+/* CARDS DE SERVIÇOS EXPLICATIVOS */
+.services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+    gap: 25px;
+
+}
+
+.card {
+    background-color: #0066ff36;
+    padding: 30px;
+    width: 250px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+.mais {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #007aff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.mais:hover {
+    background-color: #007affcc;
+    text-decoration: none;
+}
+
+/* SEÇÕES DE SERVIÇOS DETALHADOS */
+.servico, .servico1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    flex-wrap: wrap;
+    gap: 40px;
+   
+    /* Adicionar largura máxima para limitar o tamanho do card */
+    max-width: 1200px; /* Escolha um valor adequado */
+    /* Centralizar o bloco (card) na horizontal */
+    margin: 0 auto;
+    /* Ajustar o padding para garantir o espaçamento lateral nas telas menores */
+    padding-left: 20px;
+    padding-right: 20px;
+
+    border-radius: 16px;
+}
+
+.servico {
+    background-color: #0066ff36;
+}
+
+/* Container para o carrossel (Substitui .imagem) */
+.carousel-container {
+    position: relative; 
+    flex: 1 1 500px; 
+    max-width: 650px; 
+    overflow: hidden; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0; /* O contorno da imagem vai para o container */
+}
+
+.carousel-slide {
+  width: 100%;
+}
+
+.carousel-img {
+    max-width: 100%;
+    width: 100%; 
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Arredondamento para encaixar no container */
+    object-fit: cover; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Botões de Navegação do Carrossel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* Indicadores do Carrossel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carousel-indicators span {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+}
+
+.carousel-indicators span.active {
+    background-color: #007aff; 
+    transform: scale(1.2);
+    border-color: #007aff;
+}
+
+
+.texto, .texto1 {
+    max-width: 500px;
+    line-height: 1.7;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    /* NOVO: Garante que o texto tenha prioridade no espaço e quebre corretamente */
+    flex: 1 1 450px; 
+}
+
+.texto {
+    color: aliceblue;
+}
+
+.texto h1 {
+    color: aliceblue;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: left;
+}
+
+.texto1 {
+    color: aliceblue
+}
+
+.texto1 h1 {
+    color: aliceblue;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: left;
+}
+
+.texto ul, .texto1 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* SEÇÃO DE PARCEIROS NA HOME */
+.parceiros-section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.parceiros-home-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.parceiros-home-titulo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #212121;
+    margin-bottom: 10px;
+}
+
+.parceiros-home-titulo p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #616161;
+}
+
+/* GRID E BOTÃO VER TODOS */
+.ver-todos-container {
+    text-align: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.btn-parceiros {
+    background-color: #0060c7;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 12px 25px;
+    transition: background 0.3s, transform 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border: 1px solid #0060c7;
+    border-radius: 50px;
+}
+
+.btn-parceiros:hover {
+    background-color: #007aff;
+    border-color: #007aff;
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* CARROSSEL DE LOGOS */
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap; /* Garante que o track tenha a largura total sem quebras */
+    /* Força o navegador a otimizar a transformação usando a GPU */
+    will-change: transform; 
+}
+
+.carousel img {
+    max-width: 300px;   /* largura máxima */
+    max-height: 300px;   /* altura máxima */
+    margin: 0 30px;
+    object-fit: contain; /* mantém proporção */
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+@keyframes scroll {
+    /* Usando translate3d(x, y, z) para garantir a aceleração de hardware */
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 991.98px) {
+  .servico, .servico1 {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* NOVO: Centraliza o título quando estiver em coluna */
+  .texto h1, .texto1 h1 {
+      text-align: center;
+  }
+  
+  /* NOVO: Garante que o texto ocupe a largura total em mobile */
+  .texto, .texto1 {
+      max-width: 100%; 
+  }
+  
+  /* NOVO: Centraliza o bloco da lista para melhor visualização em mobile */
+  .texto ul, .texto1 ul {
+      display: inline-block;
+      text-align: left;
+      padding-left: 0;
+  }
+  
+  .carousel img {
+    max-width: 80px;
+    max-height: 40px;
+    margin: 0 15px;
+  }
+}
+
+/* --- ESTILO: Botão Voltar ao Topo --- */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 120px; 
+    right: 30px;
+    background-color: #007aff; 
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    opacity: 0.5; 
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1000;
+    transform: translateY(0);
+}
+
+.btn-scroll-top:hover {
+    background-color: #0060c7;
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* --- RESPONSIVIDADE (Ajusta a posição do botão em telas pequenas) --- */
+@media (max-width: 600px) {
+    .btn-scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
