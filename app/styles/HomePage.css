@@ -1,300 +1,210 @@
-/* app/HomePage.css */
+/* app/styles/HomePage.css */
 
-/* Código CSS original adaptado para React (sem alterações funcionais)*/
+/* --- CONFIGURAÇÃO DA PÁGINA --- */
+.estilos-fundo {
+    /* CORREÇÃO: Espaço para a Navbar fixa (65px) não cobrir o conteúdo */
+    padding-top: 65px; 
+    background-color: #0f111a; /* Cinza profundo idêntico à Navbar */
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* EFEITO DE ILUMINAÇÃO: Manchas sutis de azul no fundo para contraste profissional */
+    background-image: 
+        radial-gradient(circle at 0% 0%, rgba(0, 122, 255, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(0, 122, 255, 0.05) 0%, transparent 35%);
+}
 
-/* PAINEL PRINCIPAL (HERO SECTION) */
-/* PAINEL PRINCIPAL (HERO SECTION) */
+/* --- PAINEL PRINCIPAL (HERO SECTION) --- */
 .painel {
-    /* CORRIGIDO: Use /assets/img/... */
-    background: url("/assets/img/fundo.jpg") no-repeat center center/cover;
-    height: 60vh;
-    position: relative;
+    background: linear-gradient(rgba(15, 17, 26, 0.021), rgba(15, 17, 26, 0)), 
+    url("/assets/img/apresentaçãohome.png") no-repeat center center/cover;
+    height: 70vh; /* Altura reduzida para uma visualização mais equilibrada */
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.painel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Overlay */
+    border-bottom: 1px solid rgba(0, 123, 255, 0.685);
+    position: relative;
+    border-top: none;
 }
 
 .overlay {
+    display: flex;
+    flex-direction: column; /* Coloca os itens um abaixo do outro */
+    align-items: center;    /* Centraliza todos horizontalmente */
+    justify-content: center; /* Garante centralização vertical se necessário */
     text-align: center;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
+    padding: 0px 50px;
+    background: rgba(15, 17, 26, 0.767);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 850px;
+    height: 250px;
+    margin: 0 auto;
     z-index: 1;
 }
 
 .overlay h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin: 0 0 10px 0;
-    font-family: 'Merriweather', serif;
-    font-weight: 500;
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Escala de título refinada */
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    /* Gradiente sutil no texto */
+    background: linear-gradient(to bottom, #ffffff, #fdfdfd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .credit {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 25px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 350;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .btn {
     text-decoration: none;
     color: #ffffff;
-    border: 2px solid #ffffff;
-    padding: 12px 25px;
-    transition: background 0.3s, color 0.3s;
+    background-color: #007aff;
+    padding: 12px 35px;
+    transition: all 0.3s ease;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .btn:hover {
-    background: #ffffff;
-    color: #212121;
+    background-color: #005ec2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 122, 255, 0.5);
 }
 
-/* CARDS DE SERVIÇOS EXPLICATIVOS */
+/* --- CARDS DE SERVIÇOS (GRID INTELIGENTE) --- */
 .services {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 60px 20px;
-    gap: 25px;
-
+    flex-wrap: nowrap; /* Força todos os cards na mesma linha */
+    padding: 40px 20px;
+    gap: 15px;         /* Espaçamento reduzido para caberem melhor */
+    max-width: 1200px; /* Alinha com a largura máxima do restante da página */
+    margin: 0 auto;    /* Centraliza a seção */
+    overflow-x: auto;  /* Adiciona scroll horizontal apenas se a tela for muito pequena */
 }
 
 .card {
-    background-color: #0066ff36;
-    padding: 30px;
-    width: 250px;
+    background-color: #0066ff1a; 
+    padding: 20px;               
+    flex: 1;                     /* Faz com que todos os cards tenham o mesmo tamanho */
+    min-width: 200px;            /* Largura mínima para manter a legibilidade */
+    max-width: 280px;            /* Largura máxima para não ficarem gigantes em telas 4K */
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    border-color: #007aff;
+    background: #0066ff1a;
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.15);
 }
 
 .card .icon {
-    font-size: 3rem;
+    font-size: 2rem; 
     margin-bottom: 10px;
 }
 
 .card h3 {
+    font-size: 1.2rem;
     margin: 10px 0;
-    font-size: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #ffffff;
 }
 
 .card p {
-    font-size: 0.9rem;
-    color: aliceblue;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    flex-grow: 1;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    flex-grow: 1; /* Garante que o texto ocupe o espaço e alinhe o botão abaixo */
 }
 
 .mais {
-    display: inline-block;
-    margin-top: 20px;
+    margin-top: 15px;
     padding: 8px 15px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #007aff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 0.85rem;
+    width: 100%; /* Botão ocupa a largura do card para melhor alinhamento */
 }
 
 .mais:hover {
-    background-color: #007affcc;
-    text-decoration: none;
+    background-color: #007aff;
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.3);
 }
 
-/* SEÇÕES DE SERVIÇOS DETALHADOS */
+/* --- SEÇÕES DE CONTEÚDO DETALHADO --- */
 .servico, .servico1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 20px;
-    flex-wrap: wrap;
-    gap: 40px;
-   
-    /* Adicionar largura máxima para limitar o tamanho do card */
-    max-width: 1200px; /* Escolha um valor adequado */
-    /* Centralizar o bloco (card) na horizontal */
-    margin: 0 auto;
-    /* Ajustar o padding para garantir o espaçamento lateral nas telas menores */
-    padding-left: 20px;
-    padding-right: 20px;
-
-    border-radius: 16px;
+    padding: 60px 20px;
+    gap: 40px; /* Aumentado levemente para melhor respiro */
+    max-width: 1250px;
+    margin: 20px auto;
 }
 
-.servico {
-    background-color: #0066ff36;
+.servico1 {
+    flex-direction: row-reverse;
 }
 
-/* Container para o carrossel (Substitui .imagem) */
-.carousel-container {
-    position: relative; 
-    flex: 1 1 500px; 
-    max-width: 650px; 
-    overflow: hidden; 
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e0e0e0; /* O contorno da imagem vai para o container */
+.imagem-container {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 3px solid #007aff;
+    box-shadow: 0 15px 35px rgba(0, 122, 255, 0.2);
 }
-
-.carousel-slide {
-  width: 100%;
-}
-
-.carousel-img {
-    max-width: 100%;
-    width: 100%; 
-    height: auto;
-    display: block;
-    border-radius: 10px; /* Arredondamento para encaixar no container */
-    object-fit: cover; 
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Botões de Navegação do Carrossel */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
-}
-
-/* Indicadores do Carrossel */
-.carousel-indicators {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-.carousel-indicators span {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    border: 1px solid rgba(0, 0, 0, 0.2); 
-}
-
-.carousel-indicators span.active {
-    background-color: #007aff; 
-    transform: scale(1.2);
-    border-color: #007aff;
-}
-
 
 .texto, .texto1 {
-    max-width: 500px;
-    line-height: 1.7;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    /* NOVO: Garante que o texto tenha prioridade no espaço e quebre corretamente */
-    flex: 1 1 450px; 
+    flex: 1;
 }
 
-.texto {
-    color: aliceblue;
+.texto h1, .texto1 h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    margin-bottom: 25px;
+    position: relative;
 }
 
-.texto h1 {
-    color: aliceblue;
-    margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: left;
+.texto h1::after, .texto1 h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007aff;
+    margin-top: 10px;
+    border-radius: 2px;
 }
 
-.texto1 {
-    color: aliceblue
-}
-
-.texto1 h1 {
-    color: aliceblue;
-    margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: left;
-}
-
-.texto ul, .texto1 ul {
+.texto ul li, .texto1 ul li {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 12px;
+    line-height: 1.6;
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-
-/* SEÇÃO DE PARCEIROS NA HOME */
+/* --- SEÇÃO DE PARCEIROS (VISUAL PREMIUM) --- */
 .parceiros-section {
     padding: 80px 20px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.02); /* Fundo levemente distinto */
+    border-top: 1px solid rgba(0, 122, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 122, 255, 0.1);
 }
 
 .parceiros-home-titulo {
@@ -303,146 +213,335 @@
 }
 
 .parceiros-home-titulo h1 {
+    font-size: 2.5rem;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: #212121;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffffff, #007aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
 }
 
 .parceiros-home-titulo p {
-    font-family: 'Open Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 1.1rem;
-    color: #616161;
 }
 
-/* GRID E BOTÃO VER TODOS */
-.ver-todos-container {
-    text-align: center;
-    margin-top: 40px;
+/* Container do Carrossel */
+.logo-container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    /* Efeito de fade nas laterais */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    width: calc(250px * 8); /* Ajuste baseado no número de logos (4 originais + 4 duplicados) */
+    animation: scrollLogos 30s linear infinite;
+    align-items: center;
+}
+
+.logo-track img {
+    width: 250px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 40px;
+    filter: grayscale(1) brightness(0.8); /* Logos discretos por padrão */
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.logo-track img:hover {
+    filter: grayscale(0) brightness(1.2); /* Ganham cor e brilho no hover */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Animação de Rolagem Infinita */
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-330px * 4)); } /* Metade do track total */
+}
+
+/* Botão "Ver Todos" Centralizado */
+.ver-todos-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .btn-parceiros {
-    background-color: #0060c7;
-    text-decoration: none;
-    color: #ffffff;
-    padding: 12px 25px;
-    transition: background 0.3s, transform 0.3s;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    border: 1px solid #0060c7;
-    border-radius: 50px;
+    background: transparent;
+    border: 2px solid #007aff;
+    color: #007aff;
+    transition: all 0.3s ease;
 }
 
 .btn-parceiros:hover {
-    background-color: #007aff;
+    background: #007aff;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
+}
+
+/* --- SEÇÃO DE PLANOS (DESIGN PREMIUM) --- */
+.planos-section {
+    padding: 100px 20px;
+    background-color: #0f111a;
+}
+
+.planos-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.planos-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffffff, #007aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.planos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plano-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+/* Efeito de Destaque no Plano Premium */
+.plano-card.destaque {
+    border: 2px solid #007aff;
+    background: rgba(0, 122, 255, 0.05);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.badge-popular {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007aff;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.plano-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.06);
     border-color: #007aff;
-    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.plano-icon {
+    color: #007aff;
+    margin-bottom: 20px;
+}
+
+.plano-card h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.plano-preco {
+    margin-bottom: 25px;
     color: #ffffff;
 }
 
-/* CARROSSEL DE LOGOS */
-.carousel {
-    overflow: hidden;
-    width: 100%;
-    padding: 30px 0;
+.plano-preco span {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.carousel-track {
+.plano-preco strong {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.plano-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.plano-features li {
     display: flex;
     align-items: center;
-    animation: scroll 20s linear infinite;
-    white-space: nowrap; /* Garante que o track tenha a largura total sem quebras */
-    /* Força o navegador a otimizar a transformação usando a GPU */
-    will-change: transform; 
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
 }
 
-.carousel img {
-    max-width: 300px;   /* largura máxima */
-    max-height: 300px;   /* altura máxima */
-    margin: 0 30px;
-    object-fit: contain; /* mantém proporção */
-    opacity: 0.9;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+.plano-features li svg {
+    color: #007aff;
 }
 
-.carousel img:hover {
-    transform: scale(1.1);
-    opacity: 1;
+/* app/styles/HomePage.css */
+
+.footer-main {
+    background-color: #007aff26; /* Tom mais escuro que o fundo para contraste */
+    padding: 40px 20px;
+    border-top: 1px solid #007aff26;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 50px;
 }
 
-@keyframes scroll {
-    /* Usando translate3d(x, y, z) para garantir a aceleração de hardware */
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(-50%, 0, 0); }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 991.98px) {
-  .servico, .servico1 {
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    height: 120px; /* Tamanho controlado */
+}
+
+.footer-rights {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-contact {
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    gap: 30px;
-  }
-
-  /* NOVO: Centraliza o título quando estiver em coluna */
-  .texto h1, .texto1 h1 {
-      text-align: center;
-  }
-  
-  /* NOVO: Garante que o texto ocupe a largura total em mobile */
-  .texto, .texto1 {
-      max-width: 100%; 
-  }
-  
-  /* NOVO: Centraliza o bloco da lista para melhor visualização em mobile */
-  .texto ul, .texto1 ul {
-      display: inline-block;
-      text-align: left;
-      padding-left: 0;
-  }
-  
-  .carousel img {
-    max-width: 80px;
-    max-height: 40px;
-    margin: 0 15px;
-  }
+    align-items: center;
+    gap: 8px;
 }
 
-/* --- ESTILO: Botão Voltar ao Topo --- */
-.btn-scroll-top {
-    position: fixed;
-    bottom: 120px; 
-    right: 30px;
-    background-color: #007aff; 
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    opacity: 0.5; 
-    visibility: visible;
-    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-    z-index: 1000;
-    transform: translateY(0);
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
 }
 
-.btn-scroll-top:hover {
-    background-color: #0060c7;
-    transform: translateY(-2px);
-    opacity: 1;
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #007aff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 5px;
+    transition: color 0.3s ease;
 }
 
-/* --- RESPONSIVIDADE (Ajusta a posição do botão em telas pequenas) --- */
-@media (max-width: 600px) {
-    .btn-scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+.social-link:hover {
+    color: #ffffff;
+}
+
+/* Responsividade do Rodapé */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo, .footer-contact {
+        align-items: center;
+        flex: none;
+    }
+    
+    .footer-contact {
+        order: 2;
+    }
+    
+    .footer-rights {
+        order: 3;
+        margin-top: 10px;
     }
 }
 
+/* Responsividade: Planos */
+@media (max-width: 1024px) {
+    .planos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .planos-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+    .plano-card.destaque {
+        transform: scale(1);
+    }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+    .servico, .servico1 {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 40px 6%;
+    }
+    .carousel-container { width: 100%; max-width: 550px; }
+}
+
+@media (max-width: 600px) {
+    .estilos-fundo { padding-top: 65px; }
+    .overlay { padding: 25px 20px; }
+    .services { padding: 30px 5%; }
+}
+
+/* Botão Voltar ao Topo */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #007aff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%;    /* Em telas muito pequenas, ocupa a largura disponível */
+        max-width: 280px; 
+    }
+    
+    .services {
+        padding: 20px;
+        gap: 15px;
+    }
+}
