@@ -1,0 +1,118 @@
+.container {
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.title span {
+    color: #007aff;
+}
+
+.subtitle {
+    color: #888;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.card {
+    width: 80%; /* 80% do espaço horizontal conforme solicitado */
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #007aff;
+}
+
+.card.reverse {
+    flex-direction: row-reverse;
+}
+
+.imageWrapper {
+    flex: 1;
+    min-height: 300px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.logo {
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.info {
+    flex: 1.5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info h2 {
+    color: #007aff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.info p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btnParceiro {
+    width: fit-content;
+    padding: 12px 25px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btnParceiro:hover {
+    background: #0056b3;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 900px) {
+    .card, .card.reverse {
+        width: 95%;
+        flex-direction: column;
+    }
+    .imageWrapper {
+        min-height: 200px;
+    }
+}

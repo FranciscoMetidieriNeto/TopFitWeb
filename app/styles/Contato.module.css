@@ -1,0 +1,197 @@
+.container {
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glassCard {
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Lado Esquerdo */
+.infoSide {
+    flex: 1;
+    padding: 60px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, transparent 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.title {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.title span {
+    color: #007aff;
+}
+
+.friendlyMessage {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.detailItem {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.iconBox {
+    background: rgba(0, 122, 255, 0.2);
+    color: #007aff;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.detailItem h3 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.detailItem p, .detailItem a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.detailItem a:hover {
+    color: #007aff;
+}
+
+/* Lado Direito (Formulário) */
+.formSide {
+    flex: 1.2;
+    padding: 60px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputRow {
+    display: flex;
+    gap: 20px;
+}
+
+.inputRow .inputGroup {
+    flex: 1;
+}
+
+.inputGroup label {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.inputGroup input, .inputGroup textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+    color: white;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+    border-color: #007aff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btnSubmit {
+    margin-top: 10px;
+    background: #007aff;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btnSubmit:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.mapContainer {
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden; /* Garante que as bordas do iframe fiquem arredondadas */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mapContainer iframe {
+    display: block;
+    /*filter: grayscale(1) invert(0.9) contrast(1.2);  Deixa o mapa no tema Dark */
+    opacity: 0.8;
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+.mapContainer iframe:hover {
+    filter: none; /* Volta as cores originais ao passar o mouse */
+    opacity: 1;
+}
+
+.infoSide {
+    flex: 1;
+    padding: 40px 60px; /* Reduzi um pouco o padding vertical para acomodar o mapa */
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, transparent 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsividade */
+@media (max-width: 960px) {
+    .glassCard {
+        flex-direction: column;
+        margin: 20px;
+    }
+    .infoSide, .formSide {
+        padding: 40px;
+    }
+    .infoSide {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .inputRow {
+        flex-direction: column;
+    }
+}

@@ -4,7 +4,7 @@
 .estilos-fundo {
     /* CORREÇÃO: Espaço para a Navbar fixa (65px) não cobrir o conteúdo */
     padding-top: 65px; 
-    background-color: #0f111a; /* Cinza profundo idêntico à Navbar */
+    background-color: #0a0a0a; /* Cinza profundo idêntico à Navbar */
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
@@ -292,7 +292,7 @@
 /* --- SEÇÃO DE PLANOS (DESIGN PREMIUM) --- */
 .planos-section {
     padding: 100px 20px;
-    background-color: #0f111a;
+    /* background-color: #0f111a; */
 }
 
 .planos-header {
