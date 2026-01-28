@@ -3,23 +3,32 @@
 .admin-layout {
   display: flex;
   min-height: 100vh;
-  background-color: var(--background); /* #0f111a conforme cite: 5 */
-  color: var(--foreground);
+  background-color: #0f111a;
+  color: white;
 }
 
 .admin-main-content {
   flex: 1;
   margin-left: 260px;
   padding: 40px;
-  background-attachment: fixed;
+  transition: all 0.3s ease;
 }
 
-.admin-section {
-  max-width: 1200px;
-  margin: 0 auto;
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  background: #007aff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Cards com efeito de vidro (Glassmorphism) */
+/* Cards e Inputs */
 .admin-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -27,19 +36,15 @@
   border-radius: 16px;
   padding: 30px;
   margin-bottom: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Inputs e Selects Profissionais */
-.admin-input, .admin-select {
+.admin-input {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   padding: 14px 16px;
   border-radius: 10px;
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.3s ease;
 }
 
 .admin-input:focus {
@@ -49,11 +54,25 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-.admin-select:focus{
+.admin-select {
+  background: #1a1e2e; /* Um tom sólido e elegante */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e1e1e6;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  appearance: none; /* Remove a seta padrão do navegador */
+  background-image: url("data:image/svg+xml,..."); /* Seta customizada sutil */
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.admin-select:focus {
   outline: none;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 4px var(--accent-blue-glow);
-  background: #0300b3;
+  border-color: #007aff; /* Cor principal */
+  background: #1f2437; /* Mudança sutil de tom */
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15); /* Brilho externo bem fino */
 }
 
 /* Botões de Ação Principal */
@@ -201,4 +220,19 @@
 @keyframes slideUpFade {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .mobile-menu-toggle { display: block; }
+  .admin-main-content { margin-left: 0; padding: 80px 20px 40px; }
+  .sidebar-overlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); z-index: 99;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-welcome-card { padding: 30px 20px; width: 100%; }
+  .dashboard-quick-stats { grid-template-columns: 1fr; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 20px; }
+  .dashboard-quick-stats::before { display: none; }
 }

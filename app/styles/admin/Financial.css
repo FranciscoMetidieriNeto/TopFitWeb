@@ -39,3 +39,48 @@
 
 .color-green { color: #28a745 !important; }
 .color-red { color: #dc3545 !important; }
+
+/* Estilo Base para o Seletor de Tipo */
+.admin-select-tipo-valor {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 10px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  appearance: none; /* Remove a seta padrão para um visual cleaner */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+}
+
+/* Estado de Foco - Brilho Dinâmico Neutralizado */
+.admin-select-tipo-valor:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Cores das Opções (Funciona na maioria dos navegadores modernos) */
+.opt-entrada {
+  color: #28a745; /* Verde Sucesso */
+  background-color: #161a2e; /* Mantém o fundo da sidebar para contraste */
+  font-weight: 600;
+}
+
+.opt-saida {
+  color: #dc3545; /* Vermelho Perigo */
+  background-color: #161a2e;
+  font-weight: 600;
+}
+
+/* Melhoria visual para quando o mouse passa por cima das opções */
+.admin-select-tipo-valor option {
+  padding: 10px;
+}

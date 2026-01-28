@@ -5,7 +5,9 @@ import {
   ArrowUpCircle, ArrowDownCircle, DollarSign, 
   Plus, History, TrendingUp 
 } from 'lucide-react';
-import '../../styles/admin/Financial.css';  
+
+// Importação do CSS específico modularizado
+import '../../styles/admin/Financial.css';
 
 const Financial = () => {
   return (
@@ -65,20 +67,19 @@ const Financial = () => {
           </div>
           <div className="input-group">
             <label className="admin-label">Tipo</label>
-            <select className="admin-select">
-              <option value="entrada">Entrada (+)</option>
-              <option value="saida">Saída (-)</option>
+            <select className="admin-select-tipo-valor">
+              <option value="entrada" className="opt-entrada">Entrada (+)</option>
+              <option value="saida" className="opt-saida">Saída (-)</option>
             </select>
           </div>
           <div className="input-group">
             <label className="admin-label">Categoria</label>
-            <select className="admin-select">
-              <option>Mensalidade</option>
-              <option>Manutenção</option>
-              <option>Equipamentos</option>
-              <option>Marketing</option>
-              <option>Outros</option>
-            </select>
+            {/* Alterado de select para input de texto para permitir escrita livre */}
+            <input 
+              type="text" 
+              placeholder="Ex: Manutenção, Marketing, etc." 
+              className="admin-input" 
+            />
           </div>
         </div>
         

@@ -39,7 +39,7 @@ const MenuPrincipal = () => {
                 <nav className={`nav-menu ${isMenuOpen ? 'is-open' : ''}`} onClick={() => setIsMenuOpen(false)}>
                     <Link href="/" className="nav-link">Início</Link>
                     {/* LINK ATUALIZADO: Aponta para a nova rota de treinos */}
-                    <Link href="/treinos" className="nav-link">Treinos</Link>
+                    <Link href="/treinos" className="nav-link">Área do aluno</Link>
                     <Link href="/parceiros" className="nav-link">Parceiros</Link>
                     <Link href="/contato" className="nav-link">Contato</Link>
                     <Link href="/admin" className="nav-link">Administração</Link>
