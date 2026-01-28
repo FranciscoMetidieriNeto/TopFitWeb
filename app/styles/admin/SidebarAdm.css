@@ -1,0 +1,123 @@
+/* app/styles/admin/SidebarAdm.css */
+
+.admin-sidebar {
+  width: 260px;
+  background: #161a2e; /* Tom ligeiramente mais claro que o fundo para contraste */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo e Identidade */
+.sidebar-logo {
+  padding: 0 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-badge {
+  font-size: 10px;
+  background: var(--accent-blue); /* Azul definido no globals.css */
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px var(--accent-blue-glow);
+}
+
+/* Navegação Principal */
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.nav-item {
+  width: 100%;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  color: #8e94a8; /* Cinza suave para itens inativos */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateX(5px);
+}
+
+.nav-item.active {
+  color: white;
+  background: rgba(0, 122, 255, 0.1); /* Fundo azul translúcido */
+  border: 1px solid rgba(0, 122, 255, 0.2);
+}
+
+.nav-item svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-item.active svg {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 5px var(--accent-blue-glow));
+}
+
+.arrow-indicator {
+  margin-left: auto;
+  opacity: 0.5;
+}
+
+/* Rodapé e Sair */
+.sidebar-footer {
+  padding: 20px;
+  margin: 0 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 68, 68, 0.05); /* Vermelho muito suave */
+  border: 1px solid rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logout-btn:hover {
+  background: #ff4444;
+  color: white;
+  box-shadow: 0 10px 20px rgba(255, 68, 68, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Ajuste para telas menores */
+@media (max-height: 700px) {
+  .sidebar-logo { padding-bottom: 20px; }
+  .nav-item { padding: 10px 16px; }
+}

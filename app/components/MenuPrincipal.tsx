@@ -42,6 +42,7 @@ const MenuPrincipal = () => {
                     <Link href="/treinos" className="nav-link">Treinos</Link>
                     <Link href="/parceiros" className="nav-link">Parceiros</Link>
                     <Link href="/contato" className="nav-link">Contato</Link>
+                    <Link href="/admin" className="nav-link">Administração</Link>
                 </nav>
 
                 {/* Botão de Acesso Único */}

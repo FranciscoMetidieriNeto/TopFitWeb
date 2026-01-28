@@ -1,0 +1,204 @@
+/* app/styles/admin/AdminLayout.css */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background); /* #0f111a conforme cite: 5 */
+  color: var(--foreground);
+}
+
+.admin-main-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 40px;
+  background-attachment: fixed;
+}
+
+.admin-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cards com efeito de vidro (Glassmorphism) */
+.admin-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Inputs e Selects Profissionais */
+.admin-input, .admin-select {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 10px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px var(--accent-blue-glow);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.admin-select:focus{
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px var(--accent-blue-glow);
+  background: #0300b3;
+}
+
+/* Botões de Ação Principal */
+.save-btn {
+  background: linear-gradient(135deg, var(--accent-blue), #0056b3);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--accent-blue-glow);
+}
+
+/* Animações de entrada */
+.animate-fade {
+  animation: slideUpFade 0.5s ease-out forwards;
+}
+
+/* app/styles/admin/AdminLayout.css - Versão Wide Premium */
+
+.dashboard-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle at center, rgba(0, 122, 255, 0.05) 0%, transparent 70%);
+}
+
+.dashboard-welcome-card {
+  width: 95%;
+  max-width: 720px; /* Largura aumentada para um visual mais horizontal */
+  padding: 40px 60px; /* Altura reduzida (40px) e largura interna aumentada (60px) */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-logo-wrapper {
+  margin-bottom: 25px; /* Espaçamento reduzido para diminuir a altura total */
+  position: relative;
+  filter: drop-shadow(0 0 15px rgba(0, 122, 255, 0.3));
+  animation: logoFloat 5s ease-in-out infinite;
+}
+
+.dashboard-main-logo {
+  object-fit: contain;
+  max-width: 280px; /* Logo ligeiramente menor para manter a harmonia horizontal */
+  height: auto;
+}
+
+.dashboard-welcome-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-welcome-card p {
+  color: #8e94a8;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 35px; /* Reduzido para aproximar os stats do texto */
+  max-width: 85%;
+}
+
+/* Indicadores de status com grid otimizada */
+.dashboard-quick-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 30px;
+  position: relative;
+}
+
+.dashboard-quick-stats::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  height: calc(100% - 30px);
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.mini-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mini-stat span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #5a5f73;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.mini-stat strong {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.color-green {
+  color: #00ff88 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Animação de flutuação suave para a logo */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
